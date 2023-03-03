@@ -11,7 +11,7 @@ const displayAI = (AI) =>{
       const div = document.createElement('div');
       div.classList.add = 'col';
       div.innerHTML = `
-      <div class="card">
+      <div class="card p-2">
               <img src="${Ai.image}" class="card-img-top img-fluid" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Features</h5>
@@ -20,6 +20,14 @@ const displayAI = (AI) =>{
             <li>${Ai.features[1]}</li>
             <li>${Ai.features[2]}</li>
           </ol>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+              <div>
+                <h5>${Ai.name}</h5>
+                <p><i class="fa-regular fa-calendar-days"></i> ${Ai.published_in}</p>
+              </div>
+              <button class="rounded-circle my-5 my-auto"><i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
       ` 
