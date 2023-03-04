@@ -75,9 +75,9 @@ const displayAiDetails = (data) => {
         <div class=" col">
           <div class="mt-3-md">
             <img src="${data.image_link[0]}" class="img-fluid rounded" alt="">
-            <span class="btn btn-danger rounded position-absolute top-0 end-0">${
+            <span class="bg-danger px-2  text-white rounded position-absolute top-0 end-0">${
               data.accuracy.score
-                ? `${data.accuracy.score * 100}% accuracy`
+                ? `${data.accuracy.score * 100}% Accuracy`
                 : ""
             }</span>
           </div>
