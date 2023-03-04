@@ -11,13 +11,13 @@ const displayAiDetails = (data) => {
     <div class="col border border-danger rounded p-3 bg-danger-subtle">
           <h5 class="mt-3">${data.description}</h5>
           <!-- payment -->
-          <div class="d-flex gap-2 mt-4">
+          <div class="d-lg-flex gap-4  mt-4">
             <h6 class="bg-white p-3 text-success rounded">${
               data.pricing[0].price ? data.pricing[0].price : "Free of Cost/"
             }<span>${
     data.pricing[0].plan ? data.pricing[0].plan : "Basic"
   }</span></h6>
-            <h6 class="bg-white p-3 text-warning-emphasis rounded">${
+            <h6 class="bg-white p-3 text-warning-emphasis rounded ">${
               data.pricing[1].price ? data.pricing[1].price : "Free Of Cost/"
             }<span>${
     data.pricing[1].plan ? data.pricing[1].plan : "Pro"
@@ -28,7 +28,7 @@ const displayAiDetails = (data) => {
     data.pricing[2].plan ? data.pricing[2].plan : "Enterprise"
   }</span></h6>
           </div>
-          <div class="d-flex gap-3 mt-4">
+          <div class="d-lg-flex   gap-4 mt-4">
             <!-- features -->
             <div>
               <h5 >Features</h5>
