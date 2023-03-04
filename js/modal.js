@@ -1,50 +1,94 @@
-const singleApi = ai =>{
-    fetch('https://openapi.programming-hero.com/api/ai/tool/01')
-    .then(res => res.json())
-    .then (data => displaySingleApi(data.data));
-} 
+const aiDetails = (id) => {
+  fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`)
+    .then((res) => res.json())
+    .then((data) => displayAiDetails(data.data));
+};
 
-const displaySingleApi = data =>{
-    //console.log(data);
-    const modalBody = document.getElementById('modal-body');
-    const div = document.createElement('div');
-    div.classList.add('d-flex');
-    div.innerHTML = `
-    <div>
-    <h5>${data.description}</h5>
-    <div class="d-flex gap-1 border">
-      <p>${data.pricing[0].price}</p>
-      <p>${data.pricing[1].price}</p> 
-      <p>${data.pricing[2].price}</p>
-    </div>
-    <div class="d-flex">
-      <div>
-        <h5>Features</h5>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-      <div>
-        <h5>intergrations</h5>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div>
-   
-      <img src="${data.image_link[0]}" class="img-fluid" alt="">
-      <h5></h5>
-      <p></p>
-    
-  </div>
-    `
-    modalBody.appendChild(div);
-}
+const displayAiDetails = (data) => {
+  console.log(data);
+  const modalBody = document.getElementById("body-modal");
+  modalBody.innerHTML = `
+    <div class="col border border-danger rounded p-3 bg-danger-subtle">
+          <h5 class="mt-3">${data.description}</h5>
+          <!-- payment -->
+          <div class="d-flex gap-2 mt-4">
+            <h6 class="bg-white p-3 text-success rounded">${
+              data.pricing[0].price ? data.pricing[0].price : "Free of Cost/"
+            }<span>${
+    data.pricing[0].plan ? data.pricing[0].plan : "Basic"
+  }</span></h6>
+            <h6 class="bg-white p-3 text-warning-emphasis rounded">${
+              data.pricing[1].price ? data.pricing[1].price : "Free Of Cost/"
+            }<span>${
+    data.pricing[1].plan ? data.pricing[1].plan : "Pro"
+  }</span></h6>
+            <h6 class="bg-white p-3 text-danger-emphasis rounded">${
+              data.pricing[2].price ? data.pricing[2].price : "Free of Cost /"
+            }<span>${
+    data.pricing[2].plan ? data.pricing[2].plan : "Enterprise"
+  }</span></h6>
+          </div>
+          <div class="d-flex gap-3 mt-4">
+            <!-- features -->
+            <div>
+              <h5 >Features</h5>
+              <ul>
+                <li>${
+                  data.features[1].feature_name
+                    ? data.features[1].feature_name
+                    : "no data found"
+                }
+                  </li>
+                <li>${
+                  data.features[2].feature_name
+                    ? data.features[2].feature_name
+                    : "no data found"
+                }</li>
+                  
+                  <li>${
+                    data.features[3].feature_name
+                      ? data.features[3].feature_name
+                      : "no data found"
+                  }</li>
+              </ul>
+            </div>
+            <!-- integrations -->
+            <div>
+              <h5>Integrations</h5>
+              <ul>
+                <li>${
+                  data.integrations[0] ? data.integrations[0] : "no data found"
+                }
+                  
+                  </li>
+                <li>${
+                  data.integrations[1] ? data.integrations[1] : "no data found"
+                }</li>
+                <li>${
+                  data.integrations[2] ? data.integrations[2] : "no data found"
+                }</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-singleApi();
+        <div class=" col">
+          <div class="mt-3-md">
+            <img src="${data.image_link[0]}" class="img-fluid rounded" alt="">
+            <span class="btn btn-danger rounded position-absolute top-0 end-0">${
+              data.accuracy.score ? "94% accuracy" : ""
+            }</span>
+          </div>
+          <h5 class="mt-4">${
+            data.input_output_examples[0].input
+              ? data.input_output_examples[0].input
+              : ""
+          }</h5>
+          <p class="mt-4">${
+            data.input_output_examples[0].output
+              ? data.input_output_examples[0].output
+              : ""
+          }</p>
+        </div>
+    `;
+};

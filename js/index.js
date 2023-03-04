@@ -9,7 +9,7 @@ const loadPosts= (dataLimit) => {
 const displayAI = (AI,dataLimit) =>{
   const aiContainer = document.getElementById('AI-container');
   aiContainer.innerHTML = '';
-  console.log(AI);
+  //console.log(AI);
 
   const showAll = document.getElementById('show-all');
   if(dataLimit && AI.length > 6){
@@ -39,7 +39,7 @@ const displayAI = (AI,dataLimit) =>{
                 <h5>${Ai.name}</h5>
                 <p><i class="fa-regular fa-calendar-days"></i> ${Ai.published_in}</p>
               </div>
-              <button id="details-arrow" class="rounded-circle my-5 my-auto border bg-white border-0" data-bs-toggle="modal" data-bs-target="#aiModal"><i class="fa-solid fa-arrow-right text-danger fs-5"></i></button>
+              <button onclick="aiDetails('${Ai.id}')" id="details-arrow" class="rounded-circle my-5 my-auto border bg-white border-0" data-bs-toggle="modal" data-bs-target="#aiModal"><i class="fa-solid fa-arrow-right text-danger fs-5"></i></button>
 
               
             </div>
