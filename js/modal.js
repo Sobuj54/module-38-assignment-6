@@ -89,7 +89,7 @@ const displayAiDetails = (data) => {
           <p class="mt-4">${
             data.input_output_examples[0].output
               ? data.input_output_examples[0].output
-              : ""
+              : "No!Not yet! Take a Break!!!"
           }</p>
         </div>
     `;
